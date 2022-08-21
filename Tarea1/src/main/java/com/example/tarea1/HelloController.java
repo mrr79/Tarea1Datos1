@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -88,7 +89,7 @@ public class HelloController implements Initializable {
                 }
             }
             int ListSize = CSVfile.size();
-// me gustaria tirar otro boton aqui, que actualice el archivo csv
+            // este es el constructor: necesito hacer algo parecido que recorra la columan de tipo de dato revisandola para ver cual es tupo a y cual tipo b
             for(int i = 0; i < ListSize/12; i++){
                 List.add(new Student(CSVfile.get(12 * i), // las 12 son las 12 columnas (es decir las 12 casillas 1ue hay por cada fila (estudiante))
                         CSVfile.get(12 * i + 1),
@@ -105,7 +106,45 @@ public class HelloController implements Initializable {
                         "NONE", // vacias por que aun no se como hacer la programacion de estas: son calculadas dependiendo del tipo de datos
                         "NONE",
                         "NONE"));
+                if (Objects.equals(CSVfile.get(12*i+5), "a"))
+                    List.add(new TypeA(
+                            CSVfile.get(12 * i),
+                            CSVfile.get(12 * i + 1),
+                            CSVfile.get(12 * i + 2),
+                            CSVfile.get(12 * i + 3),
+                            CSVfile.get(12 * i + 4),
+                            CSVfile.get(12 * i + 5),
+                            CSVfile.get(12 * i + 6),
+                            CSVfile.get(12 * i + 7),
+                            CSVfile.get(12 * i + 8),
+                            CSVfile.get(12 * i + 9),
+                            CSVfile.get(12 * i + 10),
+                            CSVfile.get(12 * i + 11),
+                            "NONE",
+                            "NONE",
+                            "NONE"));
+
+                if (Objects.equals(CSVfile.get(12*i+5), "b"))
+                    List.add(new TypeB(
+                            CSVfile.get(12 * i),
+                            CSVfile.get(12 * i + 1),
+                            CSVfile.get(12 * i + 2),
+                            CSVfile.get(12 * i + 3),
+                            CSVfile.get(12 * i + 4),
+                            CSVfile.get(12 * i + 5),
+                            CSVfile.get(12 * i + 6),
+                            CSVfile.get(12 * i + 7),
+                            CSVfile.get(12 * i + 8),
+                            CSVfile.get(12 * i + 9),
+                            CSVfile.get(12 * i + 10),
+                            CSVfile.get(12 * i + 11),
+                            "NONE",
+                            "NONE",
+                            "NONE"));
             }
+// Objects.equals sirve para: a static method of the Objects class that accepts two objects and checks if the objects are equal.
+// entonces con esta comparo si lo que esta en la columna 6 (index 5) es b o es a, y depende lo meto en esa clase de una vez.
+
 
             Table.refresh(); // refresca el contenido
 
