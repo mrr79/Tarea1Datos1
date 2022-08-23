@@ -83,49 +83,29 @@ public class HelloController implements Initializable {
             BufferedReader br = new BufferedReader(new FileReader(direccionCSV));
             while((fila = br.readLine()) != null) {
                 String[] values = fila.split(",");
+                /// aqui
+                String DCarne = values[0];
+                String DNombre = values[1];
+                String Dcorreo = values[2];
+                String DTelefono = values[3];
+                String DNickname = values[4];
+                String DTipo = values[5];
+                String DPromedioExamenes = (values[6]);
+                String PromedioQuices =  (values[7]);
+                String PromedioTareas = (values[8]);
+                String Proyecto1 = (values[9]);
+                String Proyecto2 = (values[10]);
+                String Proyecto3 =  (values[11]);
+                String DPromedioProyectos = "";
+                String DPromedioExQT = "";
+                String DNotaFinal = "";
+                if (Objects.equals(values[5], "a")) {
+                    List.add(new TypeA(DCarne, DNombre, Dcorreo, DTelefono, DNickname, DTipo, DPromedioExamenes, PromedioQuices, PromedioTareas, Proyecto1, Proyecto2,  Proyecto3, DPromedioProyectos, DPromedioExQT, DNotaFinal));
 
-                for(int i = 0; i < 12; i++){
-                    CSVfile.add(values[i]);
                 }
-            }
-            int ListSize = CSVfile.size();
-            // este es el constructor: necesito hacer algo parecido que recorra la columan de tipo de dato revisandola para ver cual es tupo a y cual tipo b
-            for(int i = 0; i < 12; i++) {
-                if (Objects.equals(CSVfile.get(12 * i + 5), "a")) {
-                    List.add(new TypeA(
-                            CSVfile.get(12 * i),
-                            CSVfile.get(12 * i + 1),
-                            CSVfile.get(12 * i + 2),
-                            CSVfile.get(12 * i + 3),
-                            CSVfile.get(12 * i + 4),
-                            CSVfile.get(12 * i + 5),
-                            CSVfile.get(12 * i + 6),
-                            CSVfile.get(12 * i + 7),
-                            CSVfile.get(12 * i + 8),
-                            CSVfile.get(12 * i + 9),
-                            CSVfile.get(12 * i + 10),
-                            CSVfile.get(12 * i + 11),
-                            "NONE",
-                            "NONE",
-                            "NONE"));
-                }
-                if (Objects.equals(CSVfile.get(12 * i + 5), "b")) {
-                    List.add(new TypeB(
-                            CSVfile.get(12 * i),
-                            CSVfile.get(12 * i + 1),
-                            CSVfile.get(12 * i + 2),
-                            CSVfile.get(12 * i + 3),
-                            CSVfile.get(12 * i + 4),
-                            CSVfile.get(12 * i + 5),
-                            CSVfile.get(12 * i + 6),
-                            CSVfile.get(12 * i + 7),
-                            CSVfile.get(12 * i + 8),
-                            CSVfile.get(12 * i + 9),
-                            CSVfile.get(12 * i + 10),
-                            CSVfile.get(12 * i + 11),
-                            "NONE",
-                            "NONE",
-                            "NONE"));
+                if (Objects.equals(values[5], "b")) {
+                    List.add(new TypeB(DCarne, DNombre, Dcorreo, DTelefono, DNickname, DTipo, DPromedioExamenes, PromedioQuices, PromedioTareas, Proyecto1, Proyecto2,  Proyecto3, DPromedioProyectos, DPromedioExQT, DNotaFinal));
+
                 }
 // Objects.equals sirve para: a static method of the Objects class that accepts two objects and checks if the objects are equal.
 // entonces con esta comparo si lo que esta en la columna 6 (index 5) es b o es a, y depende lo meto en esa clase de una vez.
