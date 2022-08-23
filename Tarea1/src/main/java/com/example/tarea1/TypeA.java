@@ -1,6 +1,4 @@
 package com.example.tarea1;
-// necesito: hacer calculos con strings===> hacerlos floats (x si hubieran decimales)
-// mostrar en la tabla otra vez: la tabla solo muestra strings.
 
 public class TypeA extends Student {
     private int promExamenes;
@@ -12,7 +10,7 @@ public class TypeA extends Student {
 
     public TypeA(String carne, String nombre, String correo, String telefono, String nickname, String tipo, String promedioExamenes, String promedioQuices, String promedioTareas, String proyecto1, String proyecto2, String proyecto3, String promedioProyectos, String promedioExQT, String notaFinal) {
         super(carne, nombre, correo, telefono, nickname, tipo, promedioExamenes, promedioQuices, promedioTareas, proyecto1, proyecto2, proyecto3, promedioProyectos, promedioExQT, notaFinal);
-        // como yo defini los valores de proyectos, examenes, quices y tareas como strings, ahora que los necesito como int debo de combertir el tipo de dato que son.
+        // como yo defini los valores de proyectos, examenes, quices y tareas como strings, ahora que los necesito como int debo de convertir el tipo de dato que son.
         promExamenes = Integer.parseInt(promedioExamenes);
         promQuices = Integer.parseInt(promedioQuices);
         promTareas = Integer.parseInt(promedioTareas);

@@ -67,11 +67,25 @@ public class HelloController implements Initializable {
     private TableColumn<Student, String> PromedioExQT;
     @FXML
     private TableColumn<Student, String> NotaFinal;
-
+    /**
+     Encapsulacion: la encapsulacion es ocultar los detalles de implementación a los usuarios. Si un miembro de datos es privado,
+     significa que solo se puede acceder a él dentro de la misma clase. Ninguna clase externa puede acceder al miembro de datos privados (variable) de otra clase.
+     El uso de private en las lineas 31-69 del controller son un ejemplo de encapsulacion donde solo puede establecer y obtener valores de estas variables a través
+     de los métodos de la clase.
+     tomado de: https://beginnersbook.com/2013/05/encapsulation-in-java/#:~:text=What%20is%20encapsulation%3F,(variable)%20of%20other%20class.
+     */
     ObservableList<Student> List = FXCollections.observableArrayList();
     @FXML
-// formato de upload csv tomado de internet.
+
     public void SelectFile(MouseEvent event) throws IOException {
+        /**
+         * Este es el primer metoodo que se crea en la programacion, que como se establece en clase, son operaciones que me permiten hacer cambios en los atributos de los objetos.
+         * Este metodo es de tipo void: que es una palabra clave especifica para un método que no debe tener un valor de retorno
+         * El metodo SelectFile se ve aplicado en la interfaz y consiste en primeramente elejir un archivo csv de la computadora, luego el programa toma cada una de las lineas(hasta el /n) del archivo
+         * y procede a crearlo como tipo strings segun el index.
+         * Posteriormente, analiza si el index 5, es decir, la posisicion 6 correspondiente al tipo de dato es a o b y lo anade a la clase segun ese tipo de dato. este es un ejemplo de instanciacion.
+         * Tomado de:  Alex Lee https://youtu.be/-Aud0cDh-J8
+         */
         FileChooser fc = new FileChooser();
         File selectedFile = fc.showOpenDialog(null);
         List<String> CSVfile = new ArrayList<>();
@@ -83,7 +97,7 @@ public class HelloController implements Initializable {
             BufferedReader br = new BufferedReader(new FileReader(direccionCSV));
             while((fila = br.readLine()) != null) {
                 String[] values = fila.split(",");
-                /// aqui
+                ///en esta parte, toma cada fila y segun su posicion/index se le da a una celda.
                 String DCarne = values[0];
                 String DNombre = values[1];
                 String Dcorreo = values[2];
@@ -99,6 +113,11 @@ public class HelloController implements Initializable {
                 String DPromedioProyectos = "";
                 String DPromedioExQT = "";
                 String DNotaFinal = "";
+                /**
+                 *  En la determinacion del tipo de dato se observa un ejemplo de instanciacion, que se segun lo visto en clase es, crear un objeto usando el 'molde' de una clase definida por aparte.
+                 *  En este caso, se crean Student dependiendo del tipo, siendo estos TypeA o TypeB, que tienen como aributos los creados anteriormente, que dependen del CSV y de los calculos.
+                    Tambien, en la determinacion del tipo de dato, se muestra un ejemplo de polimorfismo, ya que estos se instancian de formas diferentes segun el tipo de dato.
+                 */
                 if (Objects.equals(values[5], "a")) {
                     List.add(new TypeA(DCarne, DNombre, Dcorreo, DTelefono, DNickname, DTipo, DPromedioExamenes, PromedioQuices, PromedioTareas, Proyecto1, Proyecto2,  Proyecto3, DPromedioProyectos, DPromedioExQT, DNotaFinal));
 
@@ -113,6 +132,11 @@ public class HelloController implements Initializable {
 
                 Table.refresh(); // refresca el contenido
             }
+            /**
+             Encapsulacion: El uso de una interfaz es tambien un ejemplo de encapsulacion porque perimete al usuario tener acceso mediante una interfaz para cambviar los atributos de un objeto.
+             es decir, se opera en la interfaz, no con la memoria como tal.
+             tomado de la presentacion de clase
+             */
         }
     }
 
