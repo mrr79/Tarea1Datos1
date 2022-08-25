@@ -23,6 +23,7 @@ public class TypeA extends Student {
         //calculándolo con la información de las notas promedios de cada uno de estos
 
     }
+    // esta funcion se encarga de calcular los promedios que se muestran en la tabla de la interfaz.
     public void Calculos(){
         int promExQT;
         promExQT = (promExamenes + promQuices + promTareas) / 3;

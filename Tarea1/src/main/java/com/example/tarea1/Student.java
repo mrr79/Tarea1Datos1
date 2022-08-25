@@ -1,10 +1,10 @@
 package com.example.tarea1;
 
 public class Student {
-    /**
+    /** Herencia
      * Para los atributos de la clase student, se usa Protected porque cuando una variable o método está protegido, puede overriding a otra subclase utilizando solo un modificador
-     * público o protegido. Los metodos de la clase Student estan protegidos, y la clase TypeA y TypeB se heredan de la clase Student, luego se accede a este método protegido
-     * creando un objeto de la clase TypeA o TypeB.
+     * público o protegido. Los atributos de la clase Student estan protegidos y esto hace que sean accesibles solamente por las clases hijas , y la clase TypeA y TypeB se heredan de la clase Student,
+     * luego se accede a este método protegido creando un objeto de la clase TypeA o TypeB.
      */
     protected String Carne;
     protected String Nombre;
